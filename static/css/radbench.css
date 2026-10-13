@@ -1,0 +1,262 @@
+/* RADBench additions on top of the Academic Project Page Template (static/css/index.css).
+   Deliberately monochrome: the template's look, with black as the only accent. */
+
+:root {
+  --primary-color: #111111;
+  --primary-hover: #000000;
+  --text-primary: #111111;
+  --text-secondary: #4b5563;
+  --gradient-accent: #111111;
+  --line: #e5e7eb;
+  --soft: #f6f6f6;
+  --muted: #6b7280;
+}
+
+/* ---------- Hero ---------- */
+.hero.is-top .hero-body { padding: 3.5rem 1.5rem 2.5rem; }
+.publication-authors .affiliation { color: var(--muted); }
+.publication-venue { color: #111 !important; background: #f1f1f1 !important; }
+.button.is-soon { cursor: default; opacity: 0.55; }
+.button.is-soon:hover { transform: none !important; background: var(--text-primary) !important; }
+.soon-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 0.05em 0.5em;
+  margin-left: 0.5em;
+}
+
+/* ---------- Section nav: plain text with an underline ---------- */
+.section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section-nav .nav-inner { display: flex; justify-content: center; gap: 1.6rem; padding: 0 1rem; flex-wrap: wrap; }
+.section-nav a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.7rem 0 0.6rem;
+  border-bottom: 2px solid transparent;
+}
+.section-nav a:hover { color: #111; }
+.section-nav a.active { color: #111; border-bottom-color: #111; }
+section[id] { scroll-margin-top: 50px; }
+
+/* ---------- Generic ---------- */
+.section { padding: 3.5rem 1.5rem; }
+.title.is-3::after { background: #111 !important; }
+.lead-text { font-size: 1.08rem; line-height: 1.8; color: #374151; }
+.lead-text p + p { margin-top: 1rem; }
+.sub-title { font-size: 1.2rem; font-weight: 700; margin: 2.2rem 0 0.8rem; color: #111; }
+.kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+  border: 1px solid #111;
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.figure { margin: 1.6rem auto; text-align: center; }
+.figure img { max-width: 100%; height: auto; border-radius: 8px; }
+.figure.is-narrow img { max-width: 620px; width: 100%; }
+.figure figcaption, .caption { font-size: 0.92rem; color: var(--muted); margin-top: 0.6rem; text-align: left; }
+.figure figcaption b, .caption b { color: #111; }
+
+/* ---------- Teaser failure example ---------- */
+
+/* ---------- Numbers row ---------- */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  margin: 0.5rem 0 0;
+}
+.numbers > div { padding: 1.1rem 0.6rem; text-align: center; }
+.numbers > div + div { border-left: 1px solid var(--line); }
+.numbers .n { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.numbers .l { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+/* ---------- Composition bar (grayscale) ---------- */
+
+/* ---------- Category groups ---------- */
+
+/* ---------- Synthetic data generation (emphasized) ---------- */
+.synthetic-section { background: #0f0f0f; color: #e5e5e5; }
+.synthetic-section .title.is-3 { color: #fff !important; }
+.synthetic-section .title.is-3::after { background: #fff !important; }
+.synthetic-section .kicker { color: #fff; border-color: #fff; }
+.synthetic-section .lead-text { color: #d4d4d4; }
+.synthetic-section strong { color: #fff; }
+.synthetic-section .sub-title { color: #fff; }
+.synthetic-section .caption, .synthetic-section figcaption { color: #a3a3a3; }
+.synthetic-section .caption b { color: #fff; }
+
+.source-card { border: 1px solid #333; border-radius: 12px; padding: 1.2rem 1.3rem; background: #171717; }
+.source-card.is-main { border-color: #fff; }
+.source-card .num { font-size: 2.4rem; font-weight: 800; color: #fff; line-height: 1; }
+.source-card h4 { color: #fff; font-weight: 700; margin: 0.4rem 0 0.3rem; }
+.source-card p { font-size: 0.93rem; color: #bdbdbd; margin: 0; }
+
+.pipeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 1rem; counter-reset: step; }
+.step { position: relative; padding: 0 1rem; }
+.step + .step { border-left: 1px dashed #444; }
+.step .step-n {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid #fff; color: #fff; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 0.7rem;
+}
+.step h4 { color: #fff; font-weight: 700; margin-bottom: 0.4rem; }
+.step p, .step li { font-size: 0.92rem; color: #c7c7c7; }
+.step ul { margin: 0.4rem 0 0 1.1rem; list-style: square; }
+.step li b { color: #fff; }
+
+
+/* Synthetic example viewer: one large stage with arrows */
+
+.criteria { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 0.8rem; }
+.criteria > div { border-top: 1px solid #444; padding-top: 0.7rem; }
+.criteria b { color: #fff; display: block; margin-bottom: 0.2rem; }
+.criteria span { font-size: 0.92rem; color: #bdbdbd; }
+
+/* ---------- Tables: booktabs style ---------- */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0; }
+.booktabs { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.booktabs .acc-bar .v, .numbers .n { font-variant-numeric: tabular-nums; }
+.booktabs thead tr { border-top: 2px solid #111; border-bottom: 1px solid #111; }
+.booktabs tbody tr:last-child { border-bottom: 2px solid #111; }
+.booktabs th { font-weight: 700; color: #111; }
+.booktabs th, .booktabs td { padding: 0.45rem 0.7rem; text-align: center; white-space: nowrap; }
+.booktabs .left { text-align: left; }
+.booktabs tr.group td { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-align: left; padding-top: 0.9rem; }
+.booktabs tr.mean td { color: var(--muted); font-style: italic; border-top: 1px solid var(--line); }
+.acc-cell { width: 55%; }
+.acc-bar { display: flex; align-items: center; gap: 0.6rem; }
+.acc-bar .track { flex: 1; height: 12px; background: #eeeeee; border-radius: 2px; overflow: hidden; }
+.acc-bar .fill { height: 100%; background: #111; }
+.acc-bar .fill.open { background: #9ca3af; }
+.acc-bar .v { width: 3.6rem; text-align: right; font-weight: 600; }
+.acc-bar .v.best { font-weight: 800; }
+.threshold-note { font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Evaluation ---------- */
+
+
+#bibtex-code { white-space: pre-wrap; word-break: break-word; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .numbers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .numbers > div:nth-child(4) { border-left: none; }
+  .numbers > div:nth-child(n+4) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 768px) {
+  .section { padding: 2.2rem 1rem; }
+  .numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .numbers > div:nth-child(odd) { border-left: none; }
+  .numbers > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .numbers > div:nth-child(4) { border-left: 1px solid var(--line); }
+  .pipeline, .criteria { grid-template-columns: 1fr; }
+  .step + .step { border-left: none; border-top: 1px dashed #444; padding-top: 1.2rem; margin-top: 1.2rem; }
+  .section-nav .nav-inner { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; gap: 1.2rem; }
+  .section-nav a { white-space: nowrap; }
+}
+
+/* ---------- Sizing: follow the template's wide figures and larger text ---------- */
+.hero.is-top .publication-title { margin-bottom: 1.6rem; }
+.hero.is-top .publication-authors { max-width: none; margin-left: auto; margin-right: auto; }
+
+.lead-text { font-size: 1.2rem; max-width: none; margin-left: auto; margin-right: auto; }
+.lead-text { max-width: none; margin-left: auto; margin-right: auto; }
+.sub-title { font-size: 1.45rem; text-align: center; margin-top: 2.8rem; }
+#results .sub-title { margin-top: 0; }
+.caption, .figure figcaption { font-size: 1.02rem; }
+.figure img { width: 100%; }
+.figure figcaption, .section > .container > .caption { max-width: none; margin-left: auto; margin-right: auto; }
+
+
+.numbers .n { font-size: 2.6rem; }
+.numbers .l { font-size: 0.98rem; }
+
+.source-card { display: flex; align-items: center; gap: 1.6rem; max-width: none; margin: 1.4rem auto 0; border-color: #fff; }
+.source-card .num { font-size: 3.6rem; }
+.source-card h4 { font-size: 1.2rem; }
+.source-card p { font-size: 1.05rem; }
+
+.step h4 { font-size: 1.2rem; }
+.step p, .step li { font-size: 1.02rem; }
+.step { padding: 0 1.4rem; }
+.criteria { max-width: none; margin-left: auto; margin-right: auto; }
+.criteria span { font-size: 1rem; }
+
+
+.booktabs { font-size: 1.05rem; }
+.table-wrap { max-width: none; margin-left: auto; margin-right: auto; }
+#results .columns { margin-left: -1rem; margin-right: -1rem; }
+#results .column { padding: 1rem; }
+
+/* ---------- Fonts: Google Sans for titles, Noto Sans for text (the Nerfies pairing) ---------- */
+body, button, input, select, textarea { font-family: 'Noto Sans', sans-serif; }
+h1, h2, h3, h4, h5, h6, .title, .title.is-3, .subtitle, .publication-title, .publication-authors, .publication-venue,
+.sub-title, .numbers .n, .source-card .num, .step h4 { font-family: 'Google Sans', sans-serif !important; }
+
+/* Figure 3 (pipeline) shown as a light card on the dark section */
+.fig-pipeline { margin: 2.2rem auto 0; }
+.fig-pipeline img { width: 100%; max-width: none; border-radius: 10px; background: #fff; }
+
+/* ---------- Proportions measured from GeoChat (1440 px viewport) ----------
+   text column 1110 px, abstract 20 px, h1 48 px, h2 32 px, body 16 px or larger */
+@media (min-width: 1024px) { .container.is-max-desktop { max-width: 1140px; } }
+.content.has-text-justified { font-size: 1.25rem; line-height: 1.7; }
+.content.has-text-justified p { margin-bottom: 1.2rem; }
+@media (max-width: 768px) { .numbers > div:last-child { grid-column: 1 / -1; } }
+
+/* Venue box: make "Oral" clearly heavier than the rest of the text */
+.publication-venue { font-weight: 500 !important; }
+.publication-venue b { font-weight: 700; -webkit-text-stroke: 0.8px currentColor; letter-spacing: 0.01em; }
+.publication-venue u { text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Global scale-up: everything rem-based is 20% larger */
+html { font-size: 19.2px !important; }
+
+/* Use far more of the screen width (GeoChat-like coverage) */
+@media (min-width: 1024px) { .container, .container.is-max-desktop { max-width: none !important; width: max(33vw, 1110px); } }
+.publication-title { font-size: 2.1rem !important; }
+.hero.is-top .publication-title { max-width: none; }
+@media (min-width: 1024px) { .container, .container.is-max-desktop { max-width: none !important; width: max(33vw, 1110px); } }
+.footer .column.is-8 { width: 100%; flex: none; }
+.footer .content, .footer .content p { font-size: 1.25rem !important; line-height: 1.7; }
+
+/* Titles and headers larger than body text (body = 1.5x GeoChat's 16px) */
+.publication-title, .title.is-1 { font-size: 3.6rem !important; line-height: 1.12 !important; }
+.title.is-3, .title.is-4, h2.title { font-size: 2.7rem !important; }
+.sub-title { font-size: 2rem !important; }
+.block-title { font-size: 1.75rem !important; }
+@media (max-width: 1023px) { .container, .container.is-max-desktop { width: auto; } .publication-title, .title.is-1 { font-size: 2rem !important; } .title.is-3 { font-size: 1.8rem !important; } }
+@media (min-width: 1024px) and (max-width: 1400px) { .section.hero > .container, .container, .container.is-max-desktop { width: 92vw; } }
+
+/* Logo row above the venue box */
+.logo-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin: 1.6rem 0 1.2rem; }
+.logo-row img { height: 6.5rem; width: auto; max-width: 100%; object-fit: contain; }
+@media (max-width: 768px) { .logo-row { gap: 1.2rem; } .logo-row img { height: 4rem; } }
+.logo-row img[alt="KAIST"] { height: 3.6rem; }
+.logo-row img[alt^="KAIST AI2"] { height: 5.4rem; }
+@media (max-width: 768px) { .logo-row img[alt="KAIST"] { height: 2.4rem; } .logo-row img[alt^="KAIST AI2"] { height: 3.2rem; } }
+
+/* Title wider than the text column so it fits on two rows */
+@media (min-width: 1024px) {
+  .hero.is-top .publication-title { width: min(94vw, 1700px); max-width: none; position: relative; left: 50%; transform: translateX(-50%); font-size: clamp(2rem, 3.1vw, 3.1rem) !important; }
+}

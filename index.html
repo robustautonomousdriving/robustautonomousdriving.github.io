@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset">
+  <meta name="description" content="RADBench: 522 corner-case driving scenarios across 75 categories, including synthetic clips generated with Veo 3 from real NHTSA crash reports. The best of 11 VLMs reaches only 53.26% accuracy.">
+  <meta name="keywords" content="RADBench, vision language models, autonomous driving, corner cases, synthetic data, Veo 3, NHTSA, benchmark">
+  <meta name="author" content="Gabriel Manalu, An Vo, Do Minh Duc, Nhat-Quang Tau, Nguyen Dinh Son, Hoang Minh Son, Hyeontaek Hwang, Jaesung Lee, Hyojin Choi, Tran Tuan Phong, Daeyoung Kim">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="KAIST">
+  <meta property="og:title" content="RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset">
+  <meta property="og:description" content="522 corner-case driving scenarios, 75 categories, synthetic clips grounded in NHTSA crash reports. The best VLM reaches 53.26%.">
+  <meta property="og:url" content="https://robustautonomousdriving.github.io/">
+  <meta property="og:image" content="https://robustautonomousdriving.github.io/static/images/radbench_main_figure.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RADBench: Evaluating Foundation VLMs for Corner Case Description">
+  <meta name="twitter:image" content="https://robustautonomousdriving.github.io/static/images/radbench_main_figure.jpg">
+
+  <!-- Academic / Google Scholar -->
+  <meta name="citation_title" content="RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset">
+  <meta name="citation_author" content="Manalu, Gabriel">
+  <meta name="citation_author" content="Vo, An">
+  <meta name="citation_author" content="Do, Minh Duc">
+  <meta name="citation_author" content="Tau, Nhat-Quang">
+  <meta name="citation_author" content="Nguyen, Dinh Son">
+  <meta name="citation_author" content="Hoang, Minh Son">
+  <meta name="citation_author" content="Hwang, Hyeontaek">
+  <meta name="citation_author" content="Lee, Jaesung">
+  <meta name="citation_author" content="Choi, Hyojin">
+  <meta name="citation_author" content="Tran, Tuan Phong">
+  <meta name="citation_author" content="Kim, Daeyoung">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="2026 IEEE Intelligent Vehicles Symposium (IV)">
+  <meta name="citation_firstpage" content="1869">
+  <meta name="citation_lastpage" content="1876">
+
+  <title>Robust Autonomous Driving Benchmark</title>
+  <link rel="icon" href="static/icons/icon-48.png" type="image/png" sizes="48x48">
+  <link rel="alternate icon" href="static/icons/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="static/icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/index.css?v=12">
+  <link rel="stylesheet" href="static/css/radbench.css?v=12">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset",
+    "author": [
+      {"@type": "Person", "name": "Gabriel Manalu"}, {"@type": "Person", "name": "An Vo"},
+      {"@type": "Person", "name": "Do Minh Duc"}, {"@type": "Person", "name": "Nhat-Quang Tau"},
+      {"@type": "Person", "name": "Nguyen Dinh Son"}, {"@type": "Person", "name": "Hoang Minh Son"},
+      {"@type": "Person", "name": "Hyeontaek Hwang"}, {"@type": "Person", "name": "Jaesung Lee"},
+      {"@type": "Person", "name": "Hyojin Choi"}, {"@type": "Person", "name": "Tran Tuan Phong"},
+      {"@type": "Person", "name": "Daeyoung Kim"}
+    ],
+    "datePublished": "2026",
+    "publisher": {"@type": "Organization", "name": "2026 IEEE Intelligent Vehicles Symposium (IV)"},
+    "pagination": "1869-1876",
+    "url": "https://robustautonomousdriving.github.io/",
+    "sameAs": "https://ieeexplore.ieee.org/abstract/document/11623818/"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero is-top">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Gabriel Manalu,</span>
+              <span class="author-block">An Vo,</span>
+              <span class="author-block">Do Minh Duc,</span>
+              <span class="author-block">Nhat-Quang Tau,</span>
+              <span class="author-block">Nguyen Dinh Son,</span>
+              <span class="author-block">Hoang Minh Son,</span>
+              <span class="author-block">Hyeontaek Hwang,</span>
+              <span class="author-block">Jaesung Lee,</span>
+              <span class="author-block">Hyojin Choi,</span>
+              <span class="author-block">Tran Tuan Phong,</span>
+              <span class="author-block">Daeyoung Kim</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="affiliation">School of Computing, KAIST, Daejeon, Korea</span><br>
+            </div>
+            <div class="logo-row">
+              <img src="static/logos/KAIST_logo.png" alt="KAIST">
+              <img src="static/logos/AI2_logo.png" alt="KAIST AI2 Laboratory">
+              <img src="static/logos/IEEE-ITSS-logo-x2.webp" alt="IEEE Intelligent Transportation Systems Society">
+              <img src="static/logos/IV_logo.png" alt="IEEE IV 2026, Detroit">
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="publication-venue">IEEE Intelligent Vehicles Symposium (IV) 2026, <b><u>Oral</u></b></span>
+            </div>
+
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/abstract/document/11623818/" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/rielmvp/robust-autonomous-driving" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/gabrieldavin23/robust-autonomous-driving" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span><span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="section-nav" aria-label="Sections">
+    <div class="nav-inner">
+      <a href="#abstract">Abstract</a>
+      <a href="#overview">Overview</a>
+      <a href="#synthetic">Synthetic Data</a>
+      <a href="#results">Results</a>
+    </div>
+  </nav>
+
+  <!-- ===================== ABSTRACT ===================== -->
+  <section class="section hero is-light" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Modern Vision Language Models (VLMs) demonstrate impressive capabilities in describing visual scenes, and so in order to assess their ability to interpret driving scenes several benchmarks have been introduced to evaluate them in autonomous driving contexts. However, most driving datasets capture routine traffic, leaving out the rare, safety-critical "corner cases": unexpected events that rarely occur but are most important to identify. Therefore, to deploy these VLMs on the road we must ask: <em>can these models see and describe unusual and dangerous events which challenge real vehicles?</em>
+            </p>
+            <p>
+              Our work, RADBench, answers this by delivering the most comprehensive corner-case video benchmark to date, containing 522 distinct driving scenarios including synthetic samples generated from a novel data collection pipeline utilizing a text-to-video generative model. We test 11 VLMs on our dataset which spans 75 different event categories, ensuring the most exhaustive corner case coverage in any benchmark to date, and reveal through open-ended question answering that they perform substantially below the standard for safety-critical applications, often failing to identify the dangers and anomalies present on the road. Our benchmark provides both the dataset and the evaluation toolkit to steer future research toward explainable autonomous driving systems equipped with robust driving assistants.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DATASET ===================== -->
+  <section class="section" id="overview">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Overview</h2>
+
+      <div class="numbers">
+        <div><div class="n">522</div><div class="l">scenarios</div></div>
+        <div><div class="n">392</div><div class="l">real dashcam clips</div></div>
+        <div><div class="n">130</div><div class="l">synthetic clips</div></div>
+        <div><div class="n">11</div><div class="l">VLMs evaluated</div></div>
+        <div><div class="n">53.26%</div><div class="l">best accuracy (GPT-4.1)</div></div>
+      </div>
+
+      <figure class="figure">
+        <img src="static/images/radbench_main_figure.jpg" alt="Overview of the Robust Autonomous Driving Benchmark (RADBench): 75 events in four groups with example keyframes">
+        <figcaption><b>Overview of Robust Autonomous Driving Benchmark (RADBench).</b> 75 different events, adapted from MM-AU's 58 accident categories and extended to cover more corner cases, divided into four high-level groups.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== SYNTHETIC DATA GENERATION ===================== -->
+  <section class="section synthetic-section" id="synthetic">
+    <div class="container">
+      <div class="has-text-centered"><span class="kicker">Key contribution</span></div>
+      <h2 class="title is-3 has-text-centered">Synthetic Data Generation</h2>
+      <div class="lead-text">
+        <p>
+          Real corner cases are rare: safety-critical events occur in less than one percent of recorded miles and are often withheld for legal or privacy reasons. Synthetic clips offer a controllable way to create rare edge cases safely in minutes. But synthetic scenes add little value if they are random. RADBench therefore grounds its generated clips in <strong>reported real-life incidents involving automated vehicles on the road</strong>.
+        </p>
+      </div>
+
+      <div class="source-card">
+        <div class="num">71</div>
+        <div>
+          <h4>Veo 3 clips grounded in NHTSA reports</h4>
+          <p>8-second videos generated with Google's Veo 3 text-to-video model from scenario prompts written from the U.S. NHTSA crash reports for automated driving systems.</p>
+        </div>
+      </div>
+
+      <div class="sub-title">From a crash report to a test clip</div>
+      <div class="pipeline">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h4>Grounding based on the NHTSA report</h4>
+          <p>For each Report ID in NHTSA's ADS crash-reporting database, annotators take the fields that describe the scene:</p>
+          <ul>
+            <li><b>Roadway type</b>, <b>surface</b> and <b>description</b></li>
+            <li><b>Lighting</b> and <b>weather</b></li>
+            <li><b>Narrative</b>: the sequence of events before and after the incident, usually from the ADS vehicle's point of view</li>
+          </ul>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h4>Write a scenario prompt, prompt Veo 3</h4>
+          <p>Annotators turn the conditions, vehicles and sequence of events into a rich natural-language scenario prompt, then generate the clip with Veo 3. The clips are grounded in documented ADS incidents and still controllable for diversity.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h4>Filter and annotate</h4>
+          <p>Each generated clip is checked for quality (below), 16 frames are sampled uniformly, and annotators write the ground-truth description by hand.</p>
+        </div>
+      </div>
+
+      <figure class="figure fig-pipeline">
+        <img src="static/images/fig3_pipeline.jpg" alt="From an NHTSA incident report to a scenario prompt, a Veo 3 clip, and a VLM response judged by o3">
+      </figure>
+
+      <div class="sub-title">What makes a generated clip usable</div>
+      <div class="criteria">
+        <div><b>Follows the prompt</b><span>The flow of events in the clip matches the scenario prompt.</span></div>
+        <div><b>Looks real</b><span>Physical interactions are plausible and there are no visual artifacts typical of synthetic video.</span></div>
+        <div><b>Readable from frames</b><span>Like real clips, the hazard has human-understandable cues and does not rely on motion alone.</span></div>
+      </div>
+      <p class="caption" style="margin-top:1.4rem">To our knowledge, RADBench is the first benchmark to use state-of-the-art text-to-video generation for corner-case synthesis that is both scenario-diverse and explicitly grounded in real incident reports.</p>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="section" id="results">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      <p class="lead-text">Accuracy (%) of 11 foundation VLMs describing the corner case in all 522 scenarios. Only GPT-4.1 passes 50%, and most open-source models stay below 10%.</p>
+      <div class="table-wrap">
+        <table class="booktabs" id="resultsTable"></table>
+      </div>
+
+      <div class="columns" style="margin-top:2rem">
+        <div class="column">
+          <div class="sub-title" style="margin-top:0">More frames barely help</div>
+          <figure class="figure" style="margin-top:0">
+            <img src="static/images/frames_ablation.jpg" alt="GPT-4.1 accuracy with 4, 8, 16 and 32 frames">
+          </figure>
+          <p class="caption">GPT-4.1 on the 392 real clips with 4/8/16/32 frames: 42.09% at 4 frames, 49.49% at 16 and 49.55% at 32. Accuracy levels off at 16 frames, so the gap is understanding the scene, not seeing more of it.</p>
+        </div>
+        <div class="column">
+          <div class="sub-title" style="margin-top:0">Performance varies across categories</div>
+          <figure class="figure" style="margin-top:0">
+            <img src="static/images/category_groups.jpg" alt="Accuracy of closed-source models per corner case group">
+          </figure>
+          <p class="caption">Closed-source models on the real clips, by group. Visual conditions like floods and landslides are easiest, while collision events are hardest for foundation VLMs to describe.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!--BibTex citation -->
+  <section class="section hero is-light" id="citation">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">Citation</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy citation to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{manalu2026radbench,
+  title={RADBench: Evaluating Foundation VLMs for Corner Case Description on A Comprehensive Dataset},
+  author={Manalu, Gabriel and Vo, An and Tau, Nhat-Quang and Son, Nguyen Dinh and Son, Hoang Minh and Hwang, Hyeontaek and Lee, Jaesung and Choi, Hyojin and Phong, Tran Tuan and Kim, Daeyoung and others},
+  booktitle={2026 IEEE Intelligent Vehicles Symposium (IV)},
+  pages={1869--1876},
+  year={2026},
+  organization={IEEE}
+}</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>,
+              licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/index.js"></script>
+</body>
+</html>
